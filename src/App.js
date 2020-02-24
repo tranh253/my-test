@@ -55,6 +55,7 @@ export default function CatAPI() {
     targetUrl = 'https://cat-fact.herokuapp.com/facts'
   let indexArray = []
   let catArray = []
+  const [errMessage, setErrMessage] = useState('')
   const [cat, setCat] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -79,16 +80,15 @@ export default function CatAPI() {
       return catArray
     } catch (error) {
       setError(true)
-      throw error;
+      throw (error)
     }
 
   }
-  const ConsoleLog = ({ children }) => {
-    console.log(children)
+  const ConsoleLog = () => {
     return (
       <ConsoleLogWrapper>
         <FontAwesomeIcon style={{ paddingRight: 20 }} icon={faExclamationTriangle} size="md" />
-        <p style={{ fontSize: 20, fontFamily: 'Comic Sans MS', fontStyle: 'italic' }}>Something wrong during the fetching process {error.message}</p>
+        <p style={{ fontSize: 20, fontFamily: 'Comic Sans MS', fontStyle: 'italic' }}>Something wrong during the fetching process : {errMessage}</p>
         <FontAwesomeIcon style={{ paddingLeft: 20 }} icon={faExclamationTriangle} size="md" />
       </ConsoleLogWrapper>
     )
@@ -98,7 +98,7 @@ export default function CatAPI() {
       //Set data for cat
       .then(setCat)
       .catch(error => {
-        console.warn(error);
+        console.log(error.message);
       });
   }
   useEffect(() => {
@@ -106,12 +106,12 @@ export default function CatAPI() {
       //Set data for cat
       .then(setCat)
       .catch(error => {
-        console.warn(error);
+        console.log(error.message);
+        setErrMessage(error.message)
       });
 
 
   }, [])
-  console.log(cat)
 
   return (
     <ContentWrapper>
