@@ -38,11 +38,7 @@
       "last 1 safari version"
     ]
   },
-<<<<<<< HEAD
   "devDependencies": {
     "jest": "^24.9.0"
   }
-=======
-  "devDependencies": {}
->>>>>>> 8fe2e40d298bb34d8ba952fdd43c1c73ba081b55
 }

@@ -52,7 +52,7 @@ const ConsoleLogWrapper = styled.div`
 
 export default function CatAPI() {
   var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-    targetUrl = 'https://cat-fact.herokuapp.com/fact'
+    targetUrl = 'https://cat-fact.herokuapp.com/facts'
   let indexArray = []
   let catArray = []
   const [cat, setCat] = useState([])
